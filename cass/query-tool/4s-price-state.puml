@@ -1,0 +1,7 @@
+@startuml
+hide empty description
+[*] --> loading: VIN 码更新
+loading --> success: 获取 4S 价格成功
+loading --> error: 获取 4S 价格失败
+error --> loading: 重试
+@enduml
