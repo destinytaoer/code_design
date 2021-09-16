@@ -1,0 +1,29 @@
+@startuml
+hide empty members
+class QuickJump {
+    tool: ToolType[]; // 查询类型
+    vin: string; // VIN 码
+    carModel?: ICarModel; // 车型
+    customerCarInfo?: ICustomerCarInfo; // 客户车辆信息
+}
+package typings {
+    interface ICarModel
+    interface ICustomerCarInfo
+}
+enum ToolType {
+    4S
+    OIL
+    MAINTAIN
+    EPC
+}
+class JumpItem {
+    type: ToolType;
+    onPress: () => void
+}
+
+QuickJump -down-> ICarModel
+QuickJump -down-> ICustomerCarInfo
+QuickJump -right-> ToolType
+QuickJump -down-> JumpItem
+
+@enduml
