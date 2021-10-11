@@ -1,0 +1,9 @@
+@startuml
+start
+if(检查是否安装微信?) then(否)
+stop
+else(是)
+:处理参数;
+:进行分享;
+stop
+@enduml
