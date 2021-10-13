@@ -1,0 +1,14 @@
+@startuml
+[Query4S] -down-> [ToolCarInfo]
+[Query4S] -down-> [QuickJump]
+[Query4S] -down-> [ShareBreakRow]
+package "Query4SContent" {
+  [Query4S] -down-> [PartsList]
+  [PartsList] -down-> [PartsItem]
+  [Query4S] -down-> [PartInput]
+  [Query4S] -down-> [CommonParts]
+}
+[Query4S] -down-> [Popover]
+[Query4S] -down-> [SpeechRecognition]
+[Query4S] -down-> [FixedInput]
+@enduml
