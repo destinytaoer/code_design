@@ -1,0 +1,46 @@
+@startuml
+class ServiceCenter {}
+class SummaryInfo {
+  userInfo?: IEcUserInfo;
+  recordList: ITenantOrderRecordInfoVm[];
+  packageList: ITenantFunRightsDetailVm[];
+}
+package 公共组件 {
+  class LevelRightList {
+    levelRights: ILevelRightVm[];
+    selectedLevel?: ILevelRightVm;
+    onSelect: (levelRight: ILevelRightVm) => void;
+  }
+  class LevelRight {
+    levelRight: ILevelRightVm;
+    isSelected: boolean;
+    onSelect: (levelRight: ILevelRightVm) => void;
+  }
+  class OpenServiceFooterBar {
+    selectedLevel: ILevelRightVm;
+    onPay: () => void;
+    recommend: string;
+    onRecommendChange: (recommend: string) => void;
+  }
+}
+
+class PackageCarousel {
+  packageList: ITenantFunRightsDetailVm[];
+}
+
+class OpenServiceRecord {
+  recordList: ITenantOrderRecordInfoVm[];
+}
+class LoadingModal {
+  visible: boolean;
+}
+
+ServiceCenter --> SummaryInfo
+ServiceCenter --> LevelRightList
+LevelRightList --> LevelRight
+ServiceCenter --> OpenServiceFooterBar
+ServiceCenter --> PackageCarousel
+ServiceCenter --> OpenServiceRecord
+ServiceCenter -> LoadingModal
+
+@enduml
